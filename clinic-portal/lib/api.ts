@@ -2,7 +2,8 @@ import axios from "axios";
 import { getToken } from "./auth";
 
 const api = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000/api",
+  // baseURL: process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000/api", //backend url
+  baseURL: process.env.NEXT_PUBLIC_API_URL || "http://https://appointment-system-b5p7.onrender.com/api",
   withCredentials: true,
 });
 
