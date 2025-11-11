@@ -33,7 +33,8 @@ const __dirname = dirname(__filename);
 
 app.use(helmet());
 app.use(cors({
-  origin: "http://localhost:3000", // your frontend
+  // origin: "http://localhost:3000", // your frontend
+  origin: "https://appointment-system-1-8qyb.onrender.com",
   credentials: true,
   //methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
 }));
@@ -43,13 +44,15 @@ app.use(rateLimit({ windowMs: 60 * 1000, max: 120 }));
 
 // Serve uploads correctly
 app.use("/uploads", (req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "http://localhost:3000");
+  // res.header("Access-Control-Allow-Origin", "http://localhost:3000");
+  res.header("Access-Control-Allow-Origin", "https://appointment-system-1-8qyb.onrender.com");
   res.header("Access-Control-Allow-Credentials", "true");
   next();
 }, express.static(path.resolve(__dirname, "../uploads")));
 
 app.use("/patient/uploads", (req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "http://localhost:3000");
+  // res.header("Access-Control-Allow-Origin", "http://localhost:3000");
+  res.header("Access-Control-Allow-Origin", "https://appointment-system-1-8qyb.onrender.com");
   res.header("Access-Control-Allow-Credentials", "true");
   next();
 }, express.static(path.resolve(__dirname, "../uploads")));
